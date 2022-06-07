@@ -10,7 +10,6 @@ SEG_Train_Datasets	訓練、測試資料
 		Train_Image	訓練輸入
 		Train_Mask	訓練groundtruth
 		create_mask.py 將Annotations轉成Train_Mask
-
 	Test			private public 測試資料
 		output_mask	測試輸出結果
 		private	private原始影像
@@ -20,8 +19,7 @@ SEG_Train_Datasets	訓練、測試資料
 		trainset	訓練資料抽樣資料 原始影像
 		trainset_input_471_858	resize後的trainset影像
 		traintarget	訓練資料抽樣資料的groundtruth
-		output_process.py	對Test中的資料做縮放
-		
+		output_process.py	對Test中的資料做縮放	
 	Image_Process.py	resize圖像
 	Mix_process.py	創建混合影像
 	random_image.py	未使用
