@@ -34,10 +34,14 @@
 		random_image.py	未使用
 
 	
-DataLoader.py		讀取影像程式
-F1_score.py			計算F1_score
-Image_Process.py		影像前處理函數
-loss_fn.py			自定義Loss function
-train.py			訓練主函數
-trainer.py			訓練過程class
-utils_tool.py		儲存模型
+	DataLoader.py		讀取影像程式
+	F1_score.py			計算F1_score
+	Image_Process.py		影像前處理函數
+	loss_fn.py			自定義Loss function
+	train.py			訓練主函數
+	trainer.py			訓練過程class
+	utils_tool.py		儲存模型
+	
+
+check_point predict model size is too large to save in github, we put model in google drive: 
+https://drive.google.com/file/d/1u8mnIpA9ZT4HvFnv5YU2uc0aN3juHVgd/view?usp=sharing
