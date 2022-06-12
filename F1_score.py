@@ -21,17 +21,18 @@ def F1_score(premask, groundtruth):
     # IoU = true_pos / (true_pos + false_neg + false_pos + 1e-6)
     return F1
 
+# mask = 'SEG_Train_Datasets/Test/output_mask'
+# truth = 'SEG_Train_Datasets/Test/traintarget'
 
-mask = 'SEG_Train_Datasets/Test/output_mask'
-truth = 'SEG_Train_Datasets/Test/traintarget'
+def calculate(mask_path, truth_path):
+    mask_path = get_all_file_extension_path(mask_path, 'png')
+    truth_path = get_all_file_extension_path(truth_path, 'jpg')
 
-mask_path = get_all_file_extension_path(mask, 'png')
-truth_path = get_all_file_extension_path(truth, 'jpg')
+    F1 = 0
+    for idx, (m, t) in enumerate(tzip(mask_path, truth_path)):
+        premask = np.array(Image.open(m))
+        groundturth = np.array(Image.open(t))
+        F1 = F1 + F1_score(premask, groundturth)
 
-F1 = 0
-for idx, (m, t) in enumerate(tzip(mask_path, truth_path)):
-    premask = np.array(Image.open(m))
-    groundturth = np.array(Image.open(t))
-    F1 = F1 + F1_score(premask, groundturth)
-
-print('F1_score', F1/len(mask_path))
+    print('F1_score', F1/len(mask_path))
+    return F1/len(mask_path)

@@ -6,6 +6,7 @@ from trainer import trainer
 from DataLoader import *
 from utils_tool import *
 from loss_fn import *
+from F1_score import *
 
 
 lr = 5e-3   #學習率
@@ -39,11 +40,11 @@ def main():
 
 if __name__ == '__main__':
     #訓練
-    main()
+    # main()
 
     #預測
     model = ResNet().to(device)
-    model = load_checkpoint(model, path='checkpoint/ckpt_random.pth')
+    model = load_checkpoint(model, path='checkpoint/ckpt_Mix_resize.pth')
     model.eval()
 
     vaild_transform = get_vaild_transform()  #取得影像前處理方法
@@ -63,6 +64,10 @@ if __name__ == '__main__':
         out = cv2.resize(out, (1716, 942))
         #儲存
         cv2.imwrite('SEG_Train_Datasets/Test/output_mask/' + n.replace('jpg', 'png'), out)
+
+    mask = 'SEG_Train_Datasets/Test/output_mask'
+    truth = 'SEG_Train_Datasets/Test/traintarget'
+    calculate(mask, truth)
 
 
 
